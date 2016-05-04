@@ -84,6 +84,20 @@ app.delete('/user', function (req, res) {
 	res.send('Got a DELETE request at /user');
 });
 
+
+// Chained route handlers:
+app.route('/book')
+	.get(function (req, res) {
+		res.send('Get a random book');
+	})
+	.post(function (req, res) {
+		res.send('Add a book');
+	})
+	.put(function (req, res) {
+		res.send('Update the book');
+	});
+
+
 app.listen(3000, function () {
 	console.log('Example app listening on port 3000!');
 });
