@@ -103,6 +103,18 @@ var birds = require('./birds');
 app.use('/birds', birds);
 
 
+// Example of error handling
+
+app.get('/error', function (req, res) {
+	throw new Error('An Error!');
+});
+
+app.use(function (err, req, res, next) {
+	console.error(err.stack);
+	res.status(500).send('Something broke!');
+});
+
+
 app.listen(3000, function () {
 	console.log('Example app listening on port 3000!');
 });
