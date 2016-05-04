@@ -98,6 +98,11 @@ app.route('/book')
 	});
 
 
+// A router as a module:
+var birds = require('./birds');
+app.use('/birds', birds);
+
+
 app.listen(3000, function () {
 	console.log('Example app listening on port 3000!');
 });
